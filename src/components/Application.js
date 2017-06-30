@@ -1,29 +1,40 @@
-import React, { PropTypes } from 'react';
-import MessagesContainer from '../containers/MessagesContainer';
-import NewMessageContainer from '../containers/NewMessageContainer';
-import SignIn from './SignIn';
-import CurrentUser from './CurrentUser';
-import Loading from './Loading';
-import './Application.css';
+import React from 'react';
+import PrintSticker from './PrintSticker'
+import GettingStarted from './GettingStarted'
+import MyStickers from './MyStickers'
+import { PanelGroup } from 'react-bootstrap'
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
+import Test from './Test'
+import Tab from './Tab'
+import { Panel, Button, Grid } from 'react-bootstrap'
 
-const Application = ({ auth, signIn, signOut }) => {
-  return (
-    <main className="Application">
-      <div className="Application--sidebar">
-        { auth.status === 'ANONYMOUS' && <SignIn signIn={signIn}/> }
-        { auth.status === 'SIGNED_IN' && <CurrentUser auth={auth} signOut={signOut} />}
-        { auth.status === 'SIGNED_IN' && <NewMessageContainer /> }
-        { auth.status === 'AWAITING_AUTH_RESPONSE' && <Loading /> }
-      </div>
-      <MessagesContainer />
-    </main>
-  );
-};
+class Application extends React.Component {
+  constructor(props) {
+    super(props)
 
-Application.propTypes = {
-  auth: PropTypes.object.isRequired,
-  signIn: PropTypes.func.isRequired,
-  signOut: PropTypes.func.isRequired
-};
+  }
+
+  render() {
+    return (
+      <main >
+        <BrowserRouter>
+          <div>
+            <Grid>
+              <PanelGroup>
+                {/*<Tab tabName="Getting Started" comp={< GettingStarted />} />*/}
+                {/*<Tab tabName="Print Stickers" comp={<PrintSticker />} />*/}
+                {/*<Tab tabName="Print Stickers" comp={<Test />} />*/}
+                <Tab tabName="My stickers" Comp={MyStickers} />
+              </PanelGroup>
+            </Grid>
+          </div>
+        </BrowserRouter>
+      </main>
+    );
+  }
+}
 
 export default Application;
+
+

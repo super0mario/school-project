@@ -1,3 +1,6 @@
+
+
+
 {
   "parser": "babel-eslint",
   "parserOptions": {
@@ -15,7 +18,9 @@
   ],
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
-    "semi": 2,
-    "no-console": 0
+    "no-console": 0,
+    "comma-dangle":"off",
+    "semi":"off",
+    "react/prop-types":"off"
   }
 }
