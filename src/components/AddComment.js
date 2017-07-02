@@ -7,20 +7,20 @@ class AddComment extends React.Component {
   }
 
   render() {
-    const { handleAddComment } = this.props.handleAddComment
+    const { handleAddComment, sticker } = this.props
     return (
       <div>
-        <label>
+        <div>
           Name:
           <input type="text" value={this.state.name}
             onChange={(event) => this.setState({ name: event.target.value })} />
-        </label>
-        <label>
-          Name:
+        </div>
+        <div>
+          Comment:
           <textarea value={this.state.comment}
             onChange={(event) => this.setState({ comment: event.target.value })} />
-        </label>
-        <button className="btn" onClick={() => handleAddComment(this.state.name, this.state.comment)}>send</button>
+        </div>
+        <button className="btn" onClick={() => handleAddComment(this.state.name, this.state.comment, sticker.key)}>send</button>
       </div>)
   }
 }

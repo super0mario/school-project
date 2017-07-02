@@ -4,13 +4,14 @@ import AddComment from './AddComment'
 import Comments from './Comments'
 import { PanelGroup } from 'react-bootstrap'
 
-const Sticker = (props) => {
-  const { comments, handleAddComment } = props.comments
+const Sticker = ({ sticker, handleAddComment }) => {
+  // console.log(sticker);
+
   return (
     <div>
       <PanelGroup>
-        <Tab tabName="Comments" comp={Comments} comments={comments} />
-        <Tab tabName="Add comment" comp={AddComment} handleAddComment={handleAddComment} />
+        <Tab tabName="Comments" Comp={Comments} sticker={sticker} />
+        <Tab tabName="Add comment" Comp={AddComment} handleAddComment={handleAddComment} sticker={sticker} />
       </PanelGroup>
     </div>
   );

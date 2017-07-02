@@ -9,12 +9,11 @@ class Tab extends React.Component {
 
   render() {
     const { tabName, Comp, ...props } = this.props
-    console.log(Comp);
 
     return (
       <div>
         <Button onClick={() => this.setState({ tab: !this.state.tab })}>{tabName}</Button>
-        <Panel collapsible expanded={true || this.state.tab}><Comp /></Panel>
+        <Panel collapsible expanded={true || this.state.tab}><Comp {...props} /></Panel>
       </div >
     );
   }
