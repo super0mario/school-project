@@ -20,8 +20,8 @@ class UpDownButton extends Component {
         return (
             <div>
                 size:
-                <button onClick={this.stickerSizeUp.bind(this)}>+</button>
-                <button onClick={this.stickerSizeDown.bind(this)}>-</button>
+                <button style={{ marginLeft: "5px" }} onClick={this.stickerSizeUp.bind(this)}>+</button>
+                <button style={{ marginRight: "10px" }} onClick={this.stickerSizeDown.bind(this)}>-</button>
                 {this.props.value}px &nbsp;
             </div>
         );

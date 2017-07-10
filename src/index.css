@@ -109,3 +109,34 @@ textarea {
     font-weight: 700;
     text-align: right;
 }
+
+#upDownButton button {
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+}
+
+.huePicker {
+    margin: 5px;
+}
+
+select {
+    margin: 5px;
+    width: 80px;
+}
+
+#printSticker input {
+    margin: 0 5px;
+}
+
+#printSticker img {
+    margin: 5px 10px;
+}
+
+#printSticker button {
+    background-color: #167c14
+}
+
+#printSticker canvas {
+    margin: 10px 0;
+}
