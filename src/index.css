@@ -1,3 +1,7 @@
+.container {
+    padding: 5px 10px;
+}
+
 .panel {
     border: 0px;
     border-radius: 5px
@@ -29,8 +33,16 @@ img {
 #panel {
     background-color: #dfefff;
     border-style: double;
-    border-width: 5px;
+    border-width: 3px;
     border-color: #002346;
+}
+
+.panel-body {
+    padding: 5px;
+}
+
+.panel-group {
+    margin: 0;
 }
 
 #myStickers input {
@@ -42,6 +54,10 @@ img {
     margin-bottom: 10px;
     width: 130px;
     background-color: #509f00;
+}
+
+#getStickers button {
+    background-color: #009148
 }
 
 button {
@@ -59,4 +75,37 @@ button {
 
 button:hover {
     background-color: #0e2d5f;
+}
+
+textarea {
+    width: 220px;
+}
+
+#addComment input {
+    width: 220px;
+}
+
+#comment {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #003871;
+    margin-bottom: 3px;
+    box-shadow: 1px 1px 1px #004182;
+}
+
+#comment #name {
+    color: #002851;
+    font-weight: 900;
+}
+
+#comment #data {
+    color: #790000;
+    line-height: 16px;
+}
+
+#comment #time {
+    color: #620000;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: right;
 }

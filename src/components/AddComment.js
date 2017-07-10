@@ -9,7 +9,7 @@ class AddComment extends React.Component {
   render() {
     const { handleAddComment, sticker } = this.props
     return (
-      <div>
+      <div id="addComment">
         <div>
           Name:
           <input type="text" value={this.state.name}

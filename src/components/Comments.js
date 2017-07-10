@@ -7,10 +7,10 @@ const Comments = ({ sticker }) => {
   return (
     <div>
       {_.map(sticker.comments, (comment, key) =>
-        <div key={key}>
-          <div>{comment.name}</div>
-          <div>{comment.data}</div>
-          <div>{comment.time}</div>
+        <div key={key} id="comment">
+          <div id="name">{comment.name}:</div>
+          <div id="data">{comment.data}</div>
+          <div id="time">{comment.time}</div>
         </div>
       )}
     </div>

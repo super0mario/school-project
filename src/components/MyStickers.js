@@ -39,7 +39,7 @@ class MyStickers extends Component {
           <input type="text" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
           <button onClick={this.fetchStickers.bind(this)}>Get stickers</button>
         </div>
-        <div>
+        <div id="getStickers">
           <PanelGroup>
             {_.map(this.state.stickers, (sticker, key) =>
               <Tab tabName={sticker.title} Comp={Sticker}
