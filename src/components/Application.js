@@ -21,9 +21,10 @@ class Application extends React.Component {
         <BrowserRouter>
           <div>
             <Grid>
-              <PanelGroup>
-                {/*<Tab tabName="Getting Started" comp={< GettingStarted />} />*/}
-                {/*<Tab tabName="Print Stickers" comp={<PrintSticker />} />*/}
+              <div className="banner"> Scan <img src="https://firebasestorage.googleapis.com/v0/b/school-project-3b636.appspot.com/o/img%2FQRcode.png?alt=media&token=886ffda1-0527-49cc-9839-517828613af5" alt="QRcode" height="45" width="45" /> and comment</div>
+              <PanelGroup id="mainMenu">
+                <Tab tabName="Getting started" Comp={GettingStarted} />
+                <Tab tabName="Print stickers" Comp={PrintSticker} />
                 {/*<Tab tabName="Print Stickers" comp={<Test />} />*/}
                 <Tab tabName="My stickers" Comp={MyStickers} />
               </PanelGroup>

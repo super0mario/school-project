@@ -1,4 +1,62 @@
 .panel {
     border: 0px;
-     border-radius: 5px
+    border-radius: 5px
+}
+
+body {
+    background: #004000;
+}
+
+@import url('https://fonts.googleapis.com/css?family=The+Girl+Next+Door');
+img {
+    border-radius: 10%;
+}
+
+.banner {
+    font-size: 21px;
+    color: #b7ffb7;
+    font-weight: bold;
+    width: 250px;
+    margin: 5px auto;
+    text-shadow: 3px 3px #400000;
+    font-family: 'The Girl Next Door', cursive;
+}
+
+#tab>button {
+    width: 200px;
+}
+
+#panel {
+    background-color: #dfefff;
+    border-style: double;
+    border-width: 5px;
+    border-color: #002346;
+}
+
+#myStickers input {
+    margin: 0 5px;
+}
+
+#myStickers>button {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    width: 130px;
+    background-color: #509f00;
+}
+
+button {
+    background-color: #0082bf;
+    /* Green */
+    border: 1px solid #000004;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px #004182;
+}
+
+button:hover {
+    background-color: #0e2d5f;
 }

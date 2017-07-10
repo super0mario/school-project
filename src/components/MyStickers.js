@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { database } from "../firebase"
 import _ from 'lodash'
 import Tab from './Tab'
-import { PanelGroup } from 'react-bootstrap'
+import { PanelGroup, Button } from 'react-bootstrap'
 import Sticker from './Sticker'
+import moment from 'moment'
 
 class MyStickers extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class MyStickers extends Component {
     const stickerRef = '/users/' + "liran/" + 'stickers/' + stickerKey + '/comments/'
     var newCommentKey = database.ref(stickerRef).push()
     console.log(newCommentKey.key);
-    database.ref(stickerRef).child(newCommentKey.key).set({ name, data, time: Date.now() });
+    database.ref(stickerRef).child(newCommentKey.key)
+      .set({ name, data, time: moment().format("DD.MM.Y, H:mm") });
   }
 
   fetchStickers() {
@@ -32,10 +34,10 @@ class MyStickers extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div id="myStickers">
           Your name:
           <input type="text" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-          <button type="button" onClick={this.fetchStickers.bind(this)}>Get stickers</button>
+          <button onClick={this.fetchStickers.bind(this)}>Get stickers</button>
         </div>
         <div>
           <PanelGroup>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button } from 'react-bootstrap'
 
 class PrintSticker extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class PrintSticker extends React.Component {
       </div>
       <div>Preview</div>
       <div>Your name: <input /></div>
-      <button className="btn" onClick={this.submit}>download Sticker Page</button>
+      <Button onClick={this.submit}>download Sticker Page</Button>
     </div>)
   }
 }
