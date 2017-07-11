@@ -1,41 +1,23 @@
-// import React from 'react';
-// import { Button } from 'react-bootstrap'
-
-// class PrintSticker extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = { stickerSize: 1 };
-//   }
-
-//   submit = () => {
-//   }
-
-//   render() {
-
-//     return (<div>
-//       <div>
-//       </div>
-//       <div>Preview</div>
-//       <div>Your name: <input /></div>
-//       <Button onClick={this.submit}>download Sticker Page</Button>
-//     </div>)
-//   }
-// }
-
-// export default PrintSticker;
 
 import React from 'react';
 import UpDownButton from './UpDownButton'
 import { HuePicker } from 'react-color';
 import update from 'immutability-helper';
 import Qrcodesvg from 'qrcodesvg';
+import { database } from '../firebase'
+const webSiteRef = 'https://school-project-3b636.firebaseapp.com/'
 
 class PrintSticker extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.canvas = null
-    this.state = { name: "", stickerSize: 80, stickerImage: null, stickerColors: [], stickerMethod: 'classic' }
+    this.stickersIDs = []
+    this.stickerID = ''
+    this.state = {
+      stickerSize: 80, stickerImage: null, stickerColors: [], stickerMethod: 'classic'
+    }
+    this.stickersRef = 'users/' + this.props.name + '/stickers/'
   }
   componentDidMount() {
     this.canvas = document.getElementById("Canvas");
@@ -43,6 +25,10 @@ class PrintSticker extends React.Component {
     this.canvas.x = 0
     this.canvas.y = 0
     this.canvas.maxRowSize = 0;
+  }
+
+  componentWillMount() {
+    this.stickerID = database.ref(this.stickersRef).push().key
   }
 
   changeColor = (index, color) => {
@@ -54,6 +40,10 @@ class PrintSticker extends React.Component {
   }
 
   addSticker(image) {
+    this.stickersIDs.push(this.stickerID)
+    this.stickerID = database.ref(this.stickersRef).push().key
+console.log(this.stickersIDs);
+
     if (this.canvas.x + image.width > 720) {
       this.canvas.y += this.canvas.maxRowSize + 10
       this.canvas.x = 0
@@ -67,7 +57,9 @@ class PrintSticker extends React.Component {
   }
 
   generateQRsticker() {
-    var qrcode = new Qrcodesvg("Hello!", this.state.stickerSize);
+    console.log(webSiteRef + this.stickersRef + this.stickerID);
+
+    var qrcode = new Qrcodesvg(webSiteRef + this.stickersRef + this.stickerID, this.state.stickerSize);
     var svg = qrcode.generate({
       "fill-colors": this.state.stickerColors,
       "method": this.state.stickerMethod
@@ -77,8 +69,8 @@ class PrintSticker extends React.Component {
     image.src = src;
 
     image.onload = function () {
-      this.setState({ stickerImage: image.src })
-    }.bind(this)
+      document.getElementById("Img").src = image.src;
+    }
 
     return image
   }
@@ -88,38 +80,41 @@ class PrintSticker extends React.Component {
     a.href = this.canvas.toDataURL();
     a.download = "Stickers";
     a.click();
+    this.stickersIDs.forEach(stickerID =>
+      database.ref(this.stickersRef).child(stickerID).set({ active: false }));
+    this.stickersIDs = []
   }
 
   render() {
+    console.log('render');
+    
     var image = this.generateQRsticker()
     return (
       <div id="printSticker">
+        <div> Hello <strong>{this.props.name}</strong>. <br /> Add stickers. When you are done, press Download </div>
         <div >
           <div id="upDownButton"><UpDownButton onChange={(stickerSize) => { this.setState({ stickerSize }); }}
             step={10} min={20} max={200} value={this.state.stickerSize} /></div>
           <div>
             colors:
-            <div className="huePicker"> <HuePicker color={this.state.stickerColors[0]} onChangeComplete={this.changeColor.bind(this, 0)} /></div>
+              <div className="huePicker"> <HuePicker color={this.state.stickerColors[0]} onChangeComplete={this.changeColor.bind(this, 0)} /></div>
             <div className="huePicker"> <HuePicker color={this.state.stickerColors[1]} onChangeComplete={this.changeColor.bind(this, 1)} /></div>
             <div className="huePicker"> <HuePicker color={this.state.stickerColors[2]} onChangeComplete={this.changeColor.bind(this, 2)} /></div>
           </div>
           method:
-          <select value={this.state.stickerMethod} onChange={this.changeMethod.bind(this)}>
+            <select value={this.state.stickerMethod} onChange={this.changeMethod.bind(this)}>
             <option value="classic">classic</option>
             <option value="round">round</option>
           </select>
           <div>
             sticker preview:
-            </div>
+              </div>
           <div>
-            <img src={this.state.stickerImage} alt="Sticker Preview" />
+            <img id="Img" src={this.state.stickerImage} alt="Sticker Preview" />
             <button type="button" onClick={this.addSticker.bind(this, image)}>Add Sticker</button>
           </div>
         </div>
-        <div>Your name:  <input type="text" value={this.state.name}
-          onChange={(event) => this.setState({ name: event.target.value })} />
-          <button type="button" onClick={this.downloadImage.bind(this)}>Download</button>
-        </div>
+        <button type="button" onClick={this.downloadImage.bind(this)}>Download</button>
         <canvas id="Canvas" width="720" height="1018" style={{ border: "1px solid black" }}>
           Your browser does not support the HTML5 canvas tag.</canvas>
       </div>

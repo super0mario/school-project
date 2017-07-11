@@ -1,17 +1,19 @@
 import Sticker from './components/Sticker';
-import Application from './components/Application';
-Sticker
 AddComment
 Application
-import Sticker from './components/Sticker';
-import Sticker from './components/Sticker';
-import Sticker from './components/Sticker';
-import Application from './components/Application';
-Sticker
-AddComment
-import Application from './components/Application';
-Sticker
-AddComment
-import Application from './components/Application';
-Sticker
-AddComment
+import Stic<div>
+  import Stic  ker from './vvvvvvvvvv/Sticker';
+  
+  Aiadfkajfkjjk  jkj d
+  import Application from './componevnts/Application';
+
+  lfslkfllkskk
+
+import Stic</div> <div>kjkjk</div>
+
+{kjfkasjkjkfjksj
+<div>
+
+  </div>
+
+}

@@ -22,9 +22,8 @@ class MyStickers extends Component {
   handleAddComment(name, data, stickerKey) {
 
     const stickerRef = '/users/' + "liran/" + 'stickers/' + stickerKey + '/comments/'
-    var newCommentKey = database.ref(stickerRef).push()
-    console.log(newCommentKey.key);
-    database.ref(stickerRef).child(newCommentKey.key)
+    var newCommentKey = database.ref(stickerRef).push().key
+    database.ref(stickerRef).child(newCommentKey)
       .set({ name, data, time: moment().format("DD.MM.Y, H:mm") });
   }
 

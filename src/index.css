@@ -137,6 +137,11 @@ select {
     background-color: #167c14
 }
 
+.buttonGreen button {
+    background-color: #167c14;
+    margin: 0 8px;
+}
+
 #printSticker canvas {
     margin: 10px 0;
 }
