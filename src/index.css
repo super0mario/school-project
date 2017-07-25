@@ -27,7 +27,9 @@ img {
 }
 
 #tab>button {
-    width: 200px;
+    width: 300px;
+    margin: 0 auto;
+    display: block;
 }
 
 #panel {
@@ -144,4 +146,69 @@ select {
 
 #printSticker canvas {
     margin: 10px 0;
+}
+
+.stickerScanned {
+    background-color: #dfefff;
+    border-style: double;
+    border-width: 3px;
+    border-color: #002346;
+}
+
+.settingUp {
+    font-weight: bold;
+    margin: 10px auto;
+    width: 180px;
+}
+
+.title {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.title>input {
+    margin-left: 34px;
+    margin-bottom: 10px;
+    width: 250px;
+}
+
+.moreInfo {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.moreInfo>textarea {
+    width: 250px;
+    margin-left: 2px;
+}
+
+.moreInfo>div {
+    float: left;
+}
+
+.activate {
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+}
+
+.stickerTitle {
+    font-size: 20px;
+    color: #ffcd9b;
+    font-weight: bold;
+    width: 300px;
+    margin: 10px auto;
+    text-shadow: 3px 3px #400000;
+    border-style: double;
+    border-width: 3px;
+    border-color: #009100;
+    text-align: center;
+}
+
+.Home {
+    width: 100px;
+    display: block;
+    background: #aeaeff;
+    margin: 15px auto;
+    color: black;
 }

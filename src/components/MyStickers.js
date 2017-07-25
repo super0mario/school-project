@@ -42,7 +42,7 @@ class MyStickers extends Component {
           <PanelGroup>
             {_.map(this.state.stickers, (sticker, key) =>
               <Tab tabName={sticker.title} Comp={Sticker}
-                sticker={{ comments: sticker.comments, key }} handleAddComment={this.handleAddComment} key={key} />)}
+                sticker={{ ...sticker, key }} handleAddComment={this.handleAddComment} key={key} />)}
           </PanelGroup>
         </div>
       </div>
