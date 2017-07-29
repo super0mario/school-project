@@ -11,6 +11,8 @@ import { Panel, Button, Grid } from 'react-bootstrap'
 import PrintStickerMenu from './PrintStickerMenu'
 import StickerScanned from './StickerScanned'
 import Banner from './Banner';
+import MyStickersMenu from './MyStickersMenu';
+import PublicStickers from './PublicStickers';
 
 class Application extends React.Component {
   constructor(props) {
@@ -44,8 +46,8 @@ const Home = () => {
             <Banner />
             <Tab tabName="Getting started" Comp={GettingStarted} />
             <Tab tabName="Print stickers" Comp={PrintStickerMenu} />
-            {/*<Tab tabName="Print Stickers" Comp={<Test />} />*/}
-            <Tab tabName="My stickers" Comp={MyStickers} />
+            <Tab tabName="My stickers" Comp={MyStickersMenu} />
+            <Tab tabName="Public Stickers" Comp={PublicStickers} />
           </PanelGroup>
         </Grid>
       </div>

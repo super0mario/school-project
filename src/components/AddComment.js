@@ -11,16 +11,16 @@ class AddComment extends React.Component {
     return (
       <div id="addComment">
         <div>
-          Name:
+          <div className='addCommentTag'>Name:</div>
           <input type="text" value={this.state.name}
             onChange={(event) => this.setState({ name: event.target.value })} />
         </div>
         <div>
-          Comment:
-          <textarea value={this.state.comment}
+          <div className='addCommentTag'>Comment:</div>
+          <textarea rows="4" cols="100" value={this.state.comment}
             onChange={(event) => this.setState({ comment: event.target.value })} />
         </div>
-        <button className="btn" onClick={() => handleAddComment(this.state.name, this.state.comment, sticker.key)}>send</button>
+        <button onClick={() => handleAddComment(this.state.name, this.state.comment, sticker.key)}>send</button>
       </div>)
   }
 }

@@ -4,7 +4,9 @@
 
 .panel {
     border: 0px;
-    border-radius: 5px
+    border-radius: 5px;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 body {
@@ -79,12 +81,16 @@ button:hover {
     background-color: #0e2d5f;
 }
 
-textarea {
-    width: 220px;
+#addComment textarea {
+    width: 250px;
 }
 
 #addComment input {
-    width: 220px;
+    width: 250px;
+}
+
+#addComment>div {
+    margin-bottom: 5px;
 }
 
 #comment {
@@ -135,8 +141,11 @@ select {
     margin: 5px 10px;
 }
 
-#printSticker button {
-    background-color: #167c14
+#printSticker button:hover,
+#myStickers>button:hover,
+#getStickers button:hover,
+#PublicStickers button:hover {
+    background-color: #10540e
 }
 
 .buttonGreen button {
@@ -144,11 +153,15 @@ select {
     margin: 0 8px;
 }
 
+#PublicStickers button {
+    background-color: #167c14;
+}
+
 #printSticker canvas {
     margin: 10px 0;
 }
 
-.stickerScanned {
+.setSticker {
     background-color: #dfefff;
     border-style: double;
     border-width: 3px;
@@ -211,4 +224,19 @@ select {
     background: #aeaeff;
     margin: 15px auto;
     color: black;
+}
+
+.Home:hover {
+    background-color: #4646ff;
+}
+
+.stickerScanned {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.addCommentTag {
+    width: 60px;
+    float: left;
+    margin-right: 10px;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Sticker from './Sticker';
+import { Link } from 'react-router-dom'
 
 class ShowSticker extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class ShowSticker extends Component {
       <div>
         <div className='stickerTitle'>{this.props.sticker.title}</div>
         <Sticker {...this.props} />
-        <button className='Home'>Home</button>
+        <Link to="/"><button className='Home' onClick={() => <Link to="/" replace />}>Home</button></Link>
       </div>
     );
   }

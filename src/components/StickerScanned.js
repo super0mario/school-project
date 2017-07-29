@@ -19,19 +19,22 @@ class StickerScanned extends Component {
     database.ref(this.stickerRef).on('value', snapshot => {
       this.setState({ sticker: snapshot.val() })
       console.log(snapshot.val());
-
+      console.log(this.state.sticker.active);
       this.state.sticker.active ? this.setState({ showStickerMenu: true }) : this.setState({ setStickerMenu: true })
     })
   }
 
-  handleAcivate() {
-
+  handleActivate = (title, moreInfo) => {
+    const stickerRef = '/users/' + this.stickerUser + '/stickers/' + this.stickerID
+    database.ref(stickerRef).set({ title, moreInfo, active: true });
+    this.setState({ setStickerMenu: false });
+    this.setState({ showStickerMenu: true });
   }
 
 
   handleAddComment(name, data, stickerKey) {
 
-    const stickerRef = '/users/' + "liran/" + 'stickers/' + stickerKey + '/comments/'
+    const stickerRef = '/users/' + this.stickerUser + '/stickers/' + stickerKey + '/comments/'
     var newCommentKey = database.ref(stickerRef).push().key
     database.ref(stickerRef).child(newCommentKey)
       .set({ name, data, time: moment().format("DD.MM.Y, H:mm") });
@@ -44,9 +47,9 @@ class StickerScanned extends Component {
     return (
       <div >
         <Banner />
-        <div >
+        <div className='stickerScanned'>
           {this.state.sticker == null && 'Loading'}
-          {this.state.setStickerMenu && <SetSticker handleAcivate={this.handleAcivate} stickerUser={this.stickerUser} />}
+          {this.state.setStickerMenu && <SetSticker handleActivate={this.handleActivate} stickerUser={this.stickerUser} />}
           {this.state.showStickerMenu && <ShowSticker sticker={{ ...this.state.sticker, key: this.stickerID }} handleAddComment={this.handleAddComment} />}
         </div>
       </div>

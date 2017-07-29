@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 class SetSticker extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: null, moreInfo: null }
+    this.state = { title: "", moreInfo: "" }
   }
 
   render() {
+    console.log("props", this.props);
+
     return (
-      <div className="stickerScanned">
+      <div className="setSticker">
         <div className="settingUp">Setting up {this.props.stickerUser}'s Sticker:</div>
         <div className="title">Title:<input type="text" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} /></div>
         <div className="moreInfo">

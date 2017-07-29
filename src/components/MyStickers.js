@@ -14,14 +14,14 @@ class MyStickers extends Component {
   }
 
   componentDidMount() {
-    database.ref('/users/' + "liran/" + 'stickers').on('value', snapshot => {
+    database.ref('/users/' + this.props.name + '/stickers').on('value', snapshot => {
       this.setState({ stickers: snapshot.val() })
     })
   }
 
-  handleAddComment(name, data, stickerKey) {
+  handleAddComment = (name, data, stickerKey) => {
 
-    const stickerRef = '/users/' + "liran/" + 'stickers/' + stickerKey + '/comments/'
+    const stickerRef = '/users/' + this.props.name + '/stickers/' + stickerKey + '/comments/'
     var newCommentKey = database.ref(stickerRef).push().key
     database.ref(stickerRef).child(newCommentKey)
       .set({ name, data, time: moment().format("DD.MM.Y, H:mm") });
@@ -32,19 +32,12 @@ class MyStickers extends Component {
   }
   render() {
     return (
-      <div>
-        <div id="myStickers">
-          Your name:
-          <input type="text" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-          <button onClick={this.fetchStickers.bind(this)}>Get stickers</button>
-        </div>
-        <div id="getStickers">
-          <PanelGroup>
-            {_.map(this.state.stickers, (sticker, key) =>
-              <Tab tabName={sticker.title} Comp={Sticker}
-                sticker={{ ...sticker, key }} handleAddComment={this.handleAddComment} key={key} />)}
-          </PanelGroup>
-        </div>
+      <div id="getStickers">
+        <PanelGroup>
+          {_.map(this.state.stickers, (sticker, key) => sticker.active &&
+            <Tab tabName={sticker.title} Comp={Sticker}
+              sticker={{ ...sticker, key }} handleAddComment={this.handleAddComment} key={key} />)}
+        </PanelGroup>
       </div>
     );
   }
