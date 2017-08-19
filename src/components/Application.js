@@ -1,13 +1,8 @@
 import React from 'react';
-// import PrintSticker from './PrintSticker'
 import GettingStarted from './GettingStarted'
-import MyStickers from './MyStickers'
 import { PanelGroup } from 'react-bootstrap'
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap'
-import Test from './Test'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Tab from './Tab'
-import { Panel, Button, Grid } from 'react-bootstrap'
 import PrintStickerMenu from './PrintStickerMenu'
 import StickerScanned from './StickerScanned'
 import Banner from './Banner';
@@ -17,7 +12,6 @@ import PublicStickers from './PublicStickers';
 class Application extends React.Component {
   constructor(props) {
     super(props)
-
   }
 
   render() {
@@ -40,16 +34,13 @@ const Home = () => {
   return (
     <main >
       <div>
-        <Grid>
-          <PanelGroup id="mainMenu">
-            debugger;
-            <Banner />
-            <Tab tabName="Getting started" Comp={GettingStarted} />
-            <Tab tabName="Print stickers" Comp={PrintStickerMenu} />
-            <Tab tabName="My stickers" Comp={MyStickersMenu} />
-            <Tab tabName="Public Stickers" Comp={PublicStickers} />
-          </PanelGroup>
-        </Grid>
+        <PanelGroup id="mainMenu">
+          <Banner />
+          <Tab tabName="Getting started" Comp={GettingStarted} />
+          <Tab tabName="Print stickers" Comp={PrintStickerMenu} />
+          <Tab tabName="My stickers" Comp={MyStickersMenu} />
+          <Tab tabName="Public Stickers" Comp={PublicStickers} />
+        </PanelGroup>
       </div>
     </main>
   );

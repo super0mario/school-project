@@ -1,0 +1,54 @@
+[debug] [2017-08-19T05:14:44.066Z] ----------------------------------------------------------------------
+[debug] [2017-08-19T05:14:44.068Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\liran\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2017-08-19T05:14:44.069Z] CLI Version:  3.9.1
+[debug] [2017-08-19T05:14:44.069Z] Platform:     win32
+[debug] [2017-08-19T05:14:44.069Z] Node Version: v6.10.0
+[debug] [2017-08-19T05:14:44.069Z] Time:         Sat Aug 19 2017 08:14:44 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:44.069Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-08-19T05:14:44.091Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-08-19T05:14:44.092Z] > authorizing via signed-in user
+[debug] [2017-08-19T05:14:44.093Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-08-19T05:14:44.094Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/XkAwV4cWiiwhajiTLcnCb8IzHHnIjIbRxpjN0qNowCaMvKFsN6VEN8jreKPRpRGz',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Aug 19 2017 08:14:44 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:44.570Z] <<< HTTP RESPONSE 200
+[debug] [2017-08-19T05:14:44.586Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/school-project-3b636  
+ Sat Aug 19 2017 08:14:44 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:45.839Z] <<< HTTP RESPONSE 200
+[debug] [2017-08-19T05:14:45.840Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/school-project-3b636/tokens  
+ Sat Aug 19 2017 08:14:45 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:46.892Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'school-project-3b636'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] +  database: rules ready to deploy.
+[debug] [2017-08-19T05:14:49.159Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~4.2.1",
+    "firebase-functions": "^0.5.7"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-08-19T05:14:49.163Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/school-project-3b636?view=CONSUMER_VIEW  
+ Sat Aug 19 2017 08:14:49 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:49.164Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/school-project-3b636?view=CONSUMER_VIEW  
+ Sat Aug 19 2017 08:14:49 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:50.687Z] <<< HTTP RESPONSE 200
+[info] +  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-08-19T05:14:50.807Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2017-08-19T05:14:50.811Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/school-project-3b636  
+ Sat Aug 19 2017 08:14:50 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:50.812Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/school-project-3b636/apiKeys  
+ Sat Aug 19 2017 08:14:50 GMT+0300 (Jerusalem Daylight Time)
+[debug] [2017-08-19T05:14:52.003Z] <<< HTTP RESPONSE 200
+[debug] [2017-08-19T05:14:52.008Z] <<< HTTP RESPONSE 200

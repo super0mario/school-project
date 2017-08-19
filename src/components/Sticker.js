@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Tab from './Tab'
 import AddComment from './AddComment'
 import Comments from './Comments'
@@ -6,8 +6,6 @@ import { PanelGroup } from 'react-bootstrap'
 import MoreInfo from './MoreInfo';
 
 const Sticker = ({ sticker, handleAddComment }) => {
-  // console.log(sticker);
-
   return (
     <div>
       <PanelGroup>

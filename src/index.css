@@ -5,7 +5,7 @@
 .panel {
     border: 0px;
     border-radius: 5px;
-    max-width: 720px;
+    max-width: 740px;
     margin: 0 auto;
 }
 
@@ -21,7 +21,7 @@ img {
 .banner {
     font-size: 21px;
     color: #b7ffb7;
-    font-weight: bold;
+    font-weigt: bold;
     width: 250px;
     margin: 5px auto;
     text-shadow: 3px 3px #400000;

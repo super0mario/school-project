@@ -42,7 +42,6 @@ class PrintSticker extends React.Component {
   addSticker(image) {
     this.stickersIDs.push(this.stickerID)
     this.stickerID = database.ref(this.stickersRef).push().key
-    console.log(this.stickersIDs);
 
     if (this.canvas.x + image.width > 720) {
       this.canvas.y += this.canvas.maxRowSize + 10
@@ -57,8 +56,6 @@ class PrintSticker extends React.Component {
   }
 
   generateQRsticker() {
-    console.log(webSiteRef + this.stickersRef + this.stickerID);
-
     var qrcode = new Qrcodesvg(webSiteRef + this.stickersRef + this.stickerID, this.state.stickerSize);
     var svg = qrcode.generate({
       "fill-colors": this.state.stickerColors,
@@ -89,8 +86,6 @@ class PrintSticker extends React.Component {
   }
 
   render() {
-    console.log('render');
-
     var image = this.generateQRsticker()
     return (
       <div id="printSticker">

@@ -7,8 +7,6 @@ class SetSticker extends Component {
   }
 
   render() {
-    console.log("props", this.props);
-
     return (
       <div className="setSticker">
         <div className="settingUp">Setting up {this.props.stickerUser}'s Sticker:</div>

@@ -9,8 +9,6 @@ class ShowSticker extends Component {
   }
 
   render() {
-    console.log("props", this.props);
-
     return (
       <div>
         <div className='stickerTitle'>{this.props.sticker.title}</div>

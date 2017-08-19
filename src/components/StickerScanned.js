@@ -4,7 +4,6 @@ import SetSticker from './SetSticker'
 import ShowSticker from './ShowSticker'
 import Banner from './Banner';
 import moment from 'moment'
-import Sticker from './Sticker';
 
 class StickerScanned extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ class StickerScanned extends Component {
   }
 
 
-  handleAddComment(name, data, stickerKey) {
+  handleAddComment = (name, data, stickerKey) => {
 
     const stickerRef = '/users/' + this.stickerUser + '/stickers/' + stickerKey + '/comments/'
     var newCommentKey = database.ref(stickerRef).push().key

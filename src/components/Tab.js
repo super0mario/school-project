@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Button, Grid } from 'react-bootstrap'
+import { Panel } from 'react-bootstrap'
 
 class Tab extends React.Component {
   constructor(props) {
